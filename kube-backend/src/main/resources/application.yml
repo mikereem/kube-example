@@ -1,0 +1,22 @@
+server:
+  port: 8082
+  shutdown: graceful
+spring:
+  application:
+    name: kube-backend
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  datasource:
+    username: 'kube-postgres'
+    password: 'kube-password'
+    url: jdbc:postgresql://localhost:5432/kube-postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
