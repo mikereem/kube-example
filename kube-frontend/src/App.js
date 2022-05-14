@@ -9,6 +9,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
+import fetch from "unfetch";
 
 function App() {
     const [todos, setTodos] = useState([]);
@@ -17,8 +18,21 @@ function App() {
     const toastCreated = useRef(null);
 
     useEffect(() => {
-        getTodos();
+        initConfig(() => getTodos());
     }, []);
+
+    const initConfig = (callback) => {
+        fetch('/config.json', {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json().then(conf => {
+                window.CONFIG = conf;
+                callback();
+            });
+        });
+    }
 
     const getTodos = () => {
         getAllTodos().then(res => res.json().then(todos => {
@@ -63,7 +77,7 @@ function App() {
                             setNewTitle('');
                             setNewDesc('');
                             getTodos();
-                        })}></Button>
+                        })}/>
                     </div>
                 </div>
             </div>

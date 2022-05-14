@@ -1,8 +1,8 @@
 import fetch from 'unfetch';
 
-export const getAllTodos = () => fetch('http://localhost:8081/api/v1/todos');
+export const getAllTodos = () => fetch(`${window.CONFIG.API_BASE_URL}/api/v1/todos`);
 
-export const createTodo = (title, description) => fetch('http://localhost:8081/api/v1/todos', {
+export const createTodo = (title, description) => fetch(`${window.CONFIG.API_BASE_URL}/api/v1/todos`, {
     headers: {
         'Content-Type': 'application/json'
     },
