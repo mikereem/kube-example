@@ -84,7 +84,9 @@ To access the application you should edit your local hosts file by adding these:
 #minikube - end
 ```
 Then you will be able to access the frontend on http://frontend.kube.local
+
 The pgadmin can be accessed on http://pgadmin.kube.local
+
 The backend can be accessed on http://backend.kube.local/api/v1
 
 Rollback example:
