@@ -75,6 +75,18 @@ kubectl apply -f .\kube-frontend\k8s\deployment.yaml
 kubectl apply -f .\kube-frontend\k8s\service.yaml
 kubectl apply -f .\kube-frontend\k8s\ingress.yaml
 ```
+To access the application you should edit your local hosts file by adding these:
+```
+#minikube - start
+127.0.0.1 frontend.kube.local
+127.0.0.1 pgadmin.kube.local
+127.0.0.1 backend.kube.local
+#minikube - end
+```
+Then you will be able to access the frontend on http://frontend.kube.local
+The pgadmin can be accessed on http://pgadmin.kube.local
+The backend can be accessed on http://backend.kube.local/api/v1
+
 Rollback example:
 ```bash
 kubectl rollout history deployment.apps/backend-deployment
