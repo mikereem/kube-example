@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -20,6 +20,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: docker

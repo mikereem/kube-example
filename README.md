@@ -50,17 +50,19 @@ The frontend can be accessed on http://localhost:3000
 
 Startup minikube cluster:
 ```bash
-minikube start
+minikube start --disable-optimizations
 # optional for a web dashboard
 minikube dashboard
 # enable ingress controller for minikube - should be done once
 minikube addons enable ingress
+# enable metrics for autoscaling - optional
+minikube addons enable metrics-server
 # enable tunneling
 minikube tunnel
 ```
 Deploying postgres:
 ```bash
-kubectl apply -f .\k8s\postres.yaml
+kubectl apply -f .\k8s\postgres.yaml
 ```
 Deploying backend:
 ```bash
