@@ -62,6 +62,7 @@ minikube tunnel
 ```
 Deploying postgres:
 ```bash
+kubectl apply -f .\k8s\persistent-volume.yaml
 kubectl apply -f .\k8s\postgres.yaml
 ```
 Deploying backend:
