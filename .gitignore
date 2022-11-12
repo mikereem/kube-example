@@ -2,3 +2,4 @@
 /.idea/
 /kube-frontend/node_modules/
 /kube-frontend/package-lock.json
+/test/reports/

@@ -97,3 +97,18 @@ Rollback example:
 kubectl rollout history deployment.apps/backend-deployment
 kubectl rollout undo deployment.apps/backend-deployment
 ```
+
+### Integration test
+
+#### Prerequisites
+
+The integration tests are written in Robot Framework. For execution, Python3 and Robot Framework should be installed.
+
+#### Execution
+
+In the test directory, execute the following command while having a running kubernetes cluster:
+```bash
+./exec-it.sh
+```
+
+The reports can be found in the test/reports directory.
